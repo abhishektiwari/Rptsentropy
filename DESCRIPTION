@@ -1,0 +1,12 @@
+Package: ptsentropy
+Title: Entropy package in R for Physiological time series
+Description: A R Package to support Physiological time series analysis
+			 using various entropies.
+URL: https://github.com/abhishektiwari/ptsentropy
+Version: 0.1
+Maintainer: Abhishek Tiwari <abhishek@abhishek-tiwari.com>
+Author: Abhishek Tiwari <abhishek@abhishek-tiwari.com>
+Depends: R (>= 2.11.0), ggplot2 
+Suggests: RCurl, ts, stats, utils
+Imports: rjson, RCurl
+License: MIT

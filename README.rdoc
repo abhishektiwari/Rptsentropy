@@ -1,0 +1,24 @@
+== Rptsentropy
+
+Physiological time-series analysis using various entropy approaches in R
+
+== Dependencies
+
+* R (>= 2.11.0)
+* ggplot2
+
+
+
+== Help & Documentation
+For more information about installing, running and configuring Rptsentropy
+including a list of known issues and troubleshooting information, 
+refer to: http://wiki.github.com/abhishektiwari/Rptsentropy/
+
+== Directory Hierarchy
+See the DirTree.txt file
+
+== Authors and copyright
+© 2010-2011 Abhishek Tiwari (abhishek@abhishek-tiwari.com)
+
+The software included in this package is copyrighted freeware
+distributed under the terms and conditions as specified in file LICENSE.
