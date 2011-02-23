@@ -5,25 +5,15 @@
 #
 # Files included in this package ptsentropy are copyrighted freeware
 # distributed under the terms and conditions as specified in file LICENSE.
-pts3 <- function(x, ...) UseMethod("pts")
+pts3 <- function(file.name, ...) UseMethod("pts3")
 
-pts3.default <- function(x, ...)  {
-  if(is.vector(x) && is.numeric(x))  {
-    object <- list(concentration = x)
-    class(object) <- "pts"
-    return (object)
+pts3.default <- function(file.name, type = 'conc')  {
+  if(type == 'conc' && IsExtension('.csv', file.name))  {
+    pts3obj(ReadConc(file.name))
   }
-  else  stop("input x is not numeric vector")
+  else if(type == 'fix' && IsExtension('.fix', file.name))  {
+    pts3obj(ReadFix(file.name))
+  }
+  else stop("Input data file format is invalid!")
 }
 
-pts3.fix <- function(x, ...) {
-  if(is.matrix(x))  {
-    if(is.numeric(x))  {
-      object <- list(conc = x[,1], prec = x[,2], time = x[,3], repl = x[,4])
-      class(object) <- "pts"
-      return (object)
-    }
-    else  stop("input x is not numeric type")
-  }
-  else  stop("input x is not a matrix")
-}

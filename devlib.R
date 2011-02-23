@@ -11,6 +11,7 @@
 # Delete this file when packge development is over
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@
 
-# Load all files with extension .R into the workspace
-sapply(list.files("R", pattern="\\.R$", ignore.case=TRUE, full.names=TRUE), source)
+# Load all files with extension .R or .r into the workspace
+sapply(list.files("R", pattern="\\.R$", ignore.case=FALSE, full.names=TRUE), source)
+sapply(list.files("R", pattern="\\.r$", ignore.case=FALSE, full.names=TRUE), source)
 invisible(NULL)
