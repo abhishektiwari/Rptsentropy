@@ -11,7 +11,7 @@ pts3obj.default <- function(x, ...)  {
   if(is.vector(x) || is.matrix(x))  {
     if(is.vector(x))  {
       if(is.numeric(x))  {
-        object <- list(concentration = x)
+        object <- list(conc = x)
         class(object) <- "pts3"
         return (object)
       }

@@ -15,3 +15,7 @@
 sapply(list.files("R", pattern="\\.R$", ignore.case=FALSE, full.names=TRUE), source)
 sapply(list.files("R", pattern="\\.r$", ignore.case=FALSE, full.names=TRUE), source)
 invisible(NULL)
+
+
+# Required libs
+library(zoo)
