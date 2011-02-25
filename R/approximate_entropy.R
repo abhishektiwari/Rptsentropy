@@ -44,19 +44,23 @@ Cmr <- function(conc.vec, m, r)  {
   return (cmr)
 }
 
-ApEn <- function(conc.vec, m, r)  {
-    cmr <- Cmr(conc.vec, m, r)
-    cmr1 <- Cmr(conc.vec, m+1, r)
-	apen <- log(cmr/cmr1)
-	return (apen)
+ApEn <- function(apen3)  {
+    cmr <- Cmr(apen3[["conc"]], apen3[["m"]], apen3[["r"]])
+    cmr1 <- Cmr(apen3[["conc"]], apen3[["m"]]+1, apen3[["r"]])
+	return (log(cmr/cmr1))
 }
 
-ApproximateEntropy <- function(pts, m, r)  {
-  if(is.null(attr(pts, "class")))  {
+apen3 <- function(pts3obj, ...) UseMethod("apen3")
+
+apen3.default <- function(pts3obj, m, r)  {
+  if(is.null(attr(pts3obj, "class")))  {
     stop('No class attribute! Method requires a pts3 object')
   }
-  else if(class(pts) == 'pts3')  {
-    ApEn(pts[["conc"]], m, r)
+  else if(class(pts3obj) == 'pts3')  {
+    object <- list(conc = pts3obj[["conc"]], m = m, r = r)
+    class(object) <- "apen3"
+    return (object)
   }
   else stop('Invalid object! Method requires a pts3 object')
 }
+
