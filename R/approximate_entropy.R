@@ -38,27 +38,25 @@ CountMatchedSubSeq <- function(subseq, r)  {
   return (match.count)
 }
 
-Cmr <- function(conc.vec, m, r) {
-  sigma.cmir <- sum(CountMatchedSubSeq(MakeSubSeq(conc.vec, m), r))
-  cmr <- sigma.cmir/(length(conc.vec)*(length(conc.vec)-m+1))
+Cmr <- function(conc.vec, m, r)  {
+  sigma.cmir <- sum(CountMatchedSubSeq(MakeSubSeq(conc.vec, m), r))/(length(conc.vec)-m+1)
+  cmr <- sigma.cmir/(length(conc.vec)-m+1)
   return (cmr)
 }
 
-ApEn <- function(conc.vec, m, r){
+ApEn <- function(conc.vec, m, r)  {
     cmr <- Cmr(conc.vec, m, r)
     cmr1 <- Cmr(conc.vec, m+1, r)
-    print(cmr)
-    print(cmr1)
 	apen <- log(cmr/cmr1)
 	return (apen)
 }
 
 ApproximateEntropy <- function(pts, m, r)  {
-  if(is.null(attr(x, "class")))  {
+  if(is.null(attr(pts, "class")))  {
     stop('No class attribute! Method requires a pts3 object')
   }
   else if(class(pts) == 'pts3')  {
-    pts[["conc"]]
+    ApEn(pts[["conc"]], m, r)
   }
   else stop('Invalid object! Method requires a pts3 object')
 }
